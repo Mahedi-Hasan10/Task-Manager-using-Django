@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Task List{% endblock  %}
+{% block content %} 
+    <center>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ task.title }}</h5>
+              <p class="card-text">{{ task.description }}</p>
+              <h6 class="card-subtitle mb-2 text-muted">Completed: {% if task.completed %}Yes{% else %}No{% endif %}</h6>
+              <a class="btn btn-info" href="{% url 'task_update' task.pk %}">Edit task</a>
+              <a class="btn btn-danger" href="{% url 'task_delete' task.pk %}">Delete task</a>
+            </div>
+          </div>
+    </center>
+{% endblock  %}
